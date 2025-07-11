@@ -71,9 +71,9 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
     .course-image {
-      height: 200px;
-      object-fit: cover;
+      height: 100%;
       width: 100%;
+      object-fit: cover;
     }
     .badge-position {
       position: absolute;

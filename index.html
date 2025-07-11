@@ -9,7 +9,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/new.css">
     <style>
-
+        .imga{
+             width: 200%;
+  height: 200%;
+ object-fit: cover;
+  transition: width 2s, height 2s, transform 2s;
+}
+.imga:hover{
+    width: 100em;
+  height: 100em;
+  transform: linear();
+}
     </style>
 </head>
 
@@ -22,7 +32,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto  mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" href="/index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
@@ -32,14 +42,14 @@
                         <li class="nav-item"><a class="nav-link" href="#">Event</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
                     </ul>
-                    <a href="#" class="btn btn-enroll">Enroll Now</a>
+                    <a href="Enroll.html" class="btn btn-enroll">Enroll Now</a>
                 </div>
             </div>
         </nav>
     </header>
     <!-- Home Sart heare -->
     <main>
-        <section class="hero   my-5">
+        <section class="hero">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -144,7 +154,7 @@
                         <!-- Card 1 -->
                         <div class="col-md-4">
                             <div class="card course-card position-relative">
-                                <img src="/image/students-1.webp" class="course-image" alt="Marketing">
+                                <img src="/image/students-1.webp" class="course-image img-fluid imga" alt="Marketing">
                                 <span class="badge bg-primary badge-position">FEATURED</span>
                                 <span class="price-badge">$149</span>
                                 <div class="card-body">
@@ -156,7 +166,7 @@
                                     <p class="course-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
                                         eiusmod tempor incididunt.</p>
                                     <div class="d-flex align-items-center mt-3">
-                                        <img src="/image/teach-1.webp" class="instructor-img me-2" alt="Sarah Johnson">
+                                        <img src="/image/teach-1.webp" class="instructor-img me-2 " alt="Sarah Johnson">
                                         <div>
                                             <strong>Sarah Johnson</strong><br>
                                             <small class="text-muted">Marketing Expert</small>
@@ -180,7 +190,7 @@
                         <!-- Card 2 -->
                         <div class="col-md-4">
                             <div class="card course-card position-relative">
-                                <img src="/image/campus-1.webp" class="course-image" alt="JavaScript">
+                                <img src="/image/campus-1.webp" class="course-image img-fluid imga" alt="JavaScript">
                                 <span class="badge bg-success badge-position">NEW</span>
                                 <span class="price-badge">$89</span>
                                 <div class="card-body">
@@ -217,7 +227,7 @@
                         <!-- Card 3 -->
                         <div class="col-md-4">
                             <div class="card course-card position-relative">
-                                <img src="/image/students-2.webp" class="course-image" alt="Data Science">
+                                <img src="/image/students-2.webp" class="course-image img-fluid imga" alt="Data Science">
                                 <span class="badge bg-warning text-dark badge-position">CERTIFICATE</span>
                                 <span class="price-badge">Free</span>
                                 <div class="card-body">
