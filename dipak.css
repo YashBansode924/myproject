@@ -1,0 +1,23 @@
+*{
+    background-color: #ffffff;
+}
+
+.hw{
+    height: 70px;
+    width: 70px;
+}
+
+.centre{
+    text-align: center;
+}
+
+#dotnone{
+     list-style-type: none;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.back{
+    background-color: white;
+}
+

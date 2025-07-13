@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- bootstrap line first css and second is icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/course.css" />
+  </head>
+  <body>
+   <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">Learner</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto  mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="/index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/course.html">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Instructors</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Event</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                    </ul>
+                    <a href="Enroll.html" class="btn btn-enroll">Enroll Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-3">
+            <h4>Filter Courses</h4>
+            <hr />
+            <h5>Category</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+                checked
+              />
+              <label class="form-check-label" for="checkDefault"
+                >All Categories</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Programming</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault">Design</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Bussiness</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Marketing</label
+              >
+            </div>
+            <!-- Level section  -->
+            <h5>Level</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+                checked
+              />
+              <label class="form-check-label" for="checkDefault">
+                All Levels</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Beginner</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Intermediate</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Advanced</label
+              >
+            </div>
+            <!-- Time Duration section -->
+            <h5>Duration</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+                checked
+              />
+              <label class="form-check-label" for="checkDefault"
+                >Under 5 hours</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >5-20 hours</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault"
+                >20+ hours</label
+              >
+            </div>
+            <!-- Price Section  -->
+            <h5>Price</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault">Paid</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label" for="checkDefault">Free</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-6">
+                <span
+                  class="input-group-text bi bi-search rounded-pill"
+                  id="basic-addon1"
+                >
+                  <input
+                    type="text"
+                    class="form-control bi bi-search rounded-4"
+                    placeholder="Search Course"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </span>
+                <!-- courses strucrure in card format -->
+              </div>
+              <div class="col-md-6">
+                <select
+                  class="form-select rounded-4"
+                  aria-label="Default select example"
+                >
+                  <option selected>Sort by: Most Popular</option>
+                  <option value="1">Price: Low to High</option>
+                  <option value="2">Price: High to Low</option>
+                  <option value="3">Duration: Short to Long</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <!-- card first -->
+                <div class="card mt-3">
+                  <img
+                    src="/Images-courses/Advanced JavaScript.png"
+                    class="card-img-top img-fluid"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <!-- imges under btn in card  -->
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Programming
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Intermediate
+                      </button>
+                    </div>
+                    <h4 class="card-title pt-2">
+                      Advanced JavaScript Development
+                    </h4>
+                    <p class="card-text pt-2">
+                      Advanced JavaScript development involves mastering core
+                      concepts to build complex, efficient, and scalable web
+                      applications
+                    </p>
+                    <div>
+                      <p>
+                        <i class="bi bi-clock"></i> 15 Hours &emsp;&emsp;
+                        <i class="bi bi-people"></i> 1245 Student
+                      </p>
+                      <br />
+                      <p>
+                        <i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-half"></i> &nbsp;4.8 (89 reviews)
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="position">
+                      <img
+                        src="/Images-courses/Dr. Marcus Thompson.png"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <p>Dr. Marcus Thompson</p>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">
+                        Enroll Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- card third -->
+                <div class="card mt-3">
+                  <img
+                    src="/Images-courses/Design.png"
+                    class="card-img-top img-fluid"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <!-- imges under btn in card  -->
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Designer
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Beginner
+                      </button>
+                    </div>
+                    <h4 class="card-title pt-2">Digital Marketing Strategies</h4>
+                    <p class="card-text pt-2"> Digital marketing strategies involve using online channels to achieve marketing goals. Key strategies include search engine optimization (SEO), content marketing, social media</p>
+                    <div>
+                      <p>
+                        <i class="bi bi-clock"></i>22 Hours &emsp;&emsp;
+                        <i class="bi bi-people"></i> 2591 Student
+                      </p>
+                      <br />
+                      <p>
+                        <i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-half"></i> &nbsp;6.6 (56 reviews)
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="position">
+                      <img
+                        src="/Images-courses/David Rodriguez.png"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <p>David Rodriguez</p>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">
+                        Enroll Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- card five no 5 -->
+                <div class="card mt-3">
+                  <img
+                    src="/Images-courses/social media.png"
+                    class="card-img-top img-fluid"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <!-- imges under btn in card  -->
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn">
+                        marketing
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn">
+                        Intermediate
+                      </button>
+                    </div>
+                    <h4 class="card-title pt-2">Social Media Marketing</h4>
+                    <p class="card-text pt-2"> Social Media Marketing: Complete Guide for 2025 - QuickFrame Social media marketing (SMM) is the use of social media platforms and websites to promote products or services and connect with audiences.</p>
+                    <div>
+                      <p>
+                        <i class="bi bi-clock"></i>12 Hours &emsp;&emsp;
+                        <i class="bi bi-people"></i> 3458 Student
+                      </p>
+                      <br />
+                      <p>
+                        <i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-half"></i> &nbsp;3.6 (56 reviews)
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="position">
+                      <img
+                        src="/Images-courses/Michael Davis.png"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <p> Michael Davis</p>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">
+                        Enroll Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+               <!-- card second -->
+                <div class="card mt-3">
+                  <img
+                    src="/Images-courses/digital.png"
+                    class="card-img-top img-fluid"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <!-- imges under btn in card  -->
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Designer
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Beginner
+                      </button>
+                    </div>
+                    <h4 class="card-title pt-2">UI/UX Design Fundamentals</h4>
+                    <p class="card-text pt-2">
+                      UI design focuses on the visual and interactive such as
+                      buttons, menus, icons, layouts, colors, and typography.
+                      aesthetically pleasing and functional interface
+                    </p>
+                    <div>
+                      <p>
+                        <i class="bi bi-clock"></i>8 Hours &emsp;&emsp;
+                        <i class="bi bi-people"></i> 2891 Student
+                      </p>
+                      <br />
+                      <p>
+                        <i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-half"></i> &nbsp;4.6 (89 reviews)
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="position">
+                      <img
+                        src="/Images-courses/Sarah Johnson.png"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <p>Dr. Marcus Thompson</p>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">
+                        Enroll Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- card fourth -->
+                <div class="card mt-3">
+                  <img
+                    src="/Images-courses/machine learinig.png"
+                    class="card-img-top img-fluid"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <!-- imges under btn in card  -->
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Programming
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn"
+                      >
+                        Advance
+                      </button>
+                    </div>
+                    <h3 class="card-title pt-2">
+                        Machine Learning with Python
+                    </h3>
+                    <p class="card-text pt-2">Python is a popular programming language for machine learning due to its readability, vast library ecosystem, and strong</p>
+                    <div>
+                      <p>
+                        <i class="bi bi-clock"></i> 35 Hours &emsp;&emsp;
+                        <i class="bi bi-people"></i> 545 Student
+                      </p>
+                      <br />
+                      <p>
+                        <i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-half"></i> &nbsp;4.7 (73 reviews)
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="position">
+                      <img
+                        src="/Images-courses/Prof. Anna Chen.png"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <p> Prof. Anna Chen</p>
+                    </div>
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">
+                        Enroll Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- card six -->
+                <div class="card mt-3">
+                  <img
+                    src="/Images-courses/graphic design.png"
+                    class="card-img-top img-fluid"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <!-- imges under btn in card  -->
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn">
+                        Designer
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-pill cardbtn">
+                        Intermediate
+                      </button>
+                    </div>
+                    <h4 class="card-title pt-2">Graphic Design Mastery</h4>
+                    <p class="card-text pt-2">
+                      This program helps students learn advanced designing techniques through classroom learning and practical projects and enables them to work as creative and independent designers
+                    </p>
+                    <div>
+                      <p>
+                        <i class="bi bi-clock"></i> 18 Hours &emsp;&emsp;
+                        <i class="bi bi-people"></i> 1853 Student
+                      </p>
+                      <br />
+                      <p>
+                        <i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-fill"></i
+                        ><i class="bi bi-star-half"></i> &nbsp;4.6 (89 reviews)
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="position">
+                      <img
+                        src="/Images-courses/Lisa Martinez.png"
+                        class="rounded-circle"
+                        alt=""
+                      />
+                      <p> Lisa Martinez</p>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">
+                        Enroll Now
+                      </button>
+                    </div>
+                    <!-- end card all -->
+              </div>
+            </div>
+          </div>
+        </div>
+                    <ul class="pagination justify-content-center mt-4">
+                        <li class="page-item disabled">
+                        <a class="page-link"><i class="bi bi-arrow-left-short"></i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                        <a class="page-link" href="#"><i class="bi bi-arrow-left-short"></i></a>
+                        </li>
+                    </ul>
+
+
+        
+
+
+      </div>
+    </section>
+    <footer class="footer text-white pt-5" style="background-color: #1664c0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="fw-bold">Learner</h5>
+                    <p>
+                        Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
+                        valies darta donna mare fermentum iaculis eu non diam phasellus.
+                    </p>
+                    <div class="d-flex gap-3 mt-3">
+                        <span class="social-icon"><i class="bi bi-twitter"></i></span>
+                        <span class="social-icon"><i class="bi bi-facebook"></i></span>
+                        <span class="social-icon"><i class="bi bi-instagram"></i></span>
+                        <span class="social-icon"><i class="bi bi-linkedin"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold">Useful Links</h6>
+                    <ul class="list-unstyled">
+                        <li>Home</li>
+                        <li>About us</li>
+                        <li>Services</li>
+                        <li>Terms of service</li>
+                        <li>Privacy policy</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li>Web Design</li>
+                        <li>Web Development</li>
+                        <li>Product Management</li>
+                        <li>Marketing</li>
+                        <li>Graphic Design</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold">Contact Us</h6>
+                    <p>A108 Adam Street<br>New York, NY 535022<br>United States</p>
+                    <p><strong>Phone:</strong> +1 5589 55488 55<br>
+                        <strong>Email:</strong> info@example.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center py-3" style="background-color: #1460bb;">
+            <p class="mb-1">© Copyright <strong>Learner</strong> All Rights Reserved</p>
+            <p class="small">Designed by <a href="#" class="text-white text-decoration-none">BootstrapMade</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+            
+  </body>
+</html>
