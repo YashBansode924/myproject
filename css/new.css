@@ -202,3 +202,70 @@
     justify-content: center;
     color: white;
   }
+   .imga{
+             width: 200%;
+  height: 200%;
+ object-fit: cover;
+  transition: width 2s, height 2s, transform 2s;
+}
+.imga:hover{
+    width: 100em;
+  height: 100em;
+  transform: linear();
+}
+.social {
+
+            color: rgb(13, 184, 246);
+            position: absolute;
+            font-size: xx-large;
+        }
+
+        .img-hover-zoom {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .img-hover-zoom:hover {
+            transform: scale(1.1);
+            /* Zoom effect; */
+        }
+
+        .price {
+            color: green;
+            position: absolute;
+            font-size: xx-large;
+
+        }
+
+        .date-overlay {
+            position: absolute;
+            Top: 136px;
+            background-color: rgb(13, 184, 246);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+
+        }
+
+        .date {
+            position: absolute;
+            top: 493px;
+            background-color: rgb(13, 184, 246);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+
+
+        }
+
+        .date-month {
+            position: absolute;
+            top: 850px;
+            background-color: rgb(13, 184, 246);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+
+        }
