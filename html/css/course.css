@@ -1,0 +1,29 @@
+.cardbtn{
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    
+}
+
+.bi-star-fill{
+    color: gold;
+}
+.bi-star-half{
+    color: gold;
+}
+
+.position{
+    display: flex;
+    margin: 5px;
+    margin-top: 5px;
+    
+}
+.position p{
+    padding: 10px 0px 0px 20px;
+}
+.nav_color{
+     font-size: 28px;
+            font-weight: 700;
+            color: #0056d2;
+}
