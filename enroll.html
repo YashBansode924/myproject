@@ -3,90 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpskillLab</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/new.css">
+    <title>Enroll Now - UpSkillLab</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #1664c0;
+            --secondary-color: #0d6efd;
+            --accent-color: #0dcaf0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .enrollment-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .enrollment-header {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .enrollment-header h2 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .enrollment-header p {
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+        
+        .enrollment-body {
+            padding: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.7rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-container {
+            padding: 0 2rem;
+        }
+        
+        .progress {
+            height: 8px;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .required-field::after {
+            content: "*";
+            color: #dc3545;
+            margin-left: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .enrollment-body {
+                padding: 1.5rem;
+            }
+            
+            body {
+                padding: 10px 0;
+            }
+        }
+    </style>
 </head>
-<style>
-   
-</style>
 <body>
-    <div class="container my-5 mr-5 ml-5 context">
-    <div class="row context">
-      <div class="col-md-6  ">
-        <h2 class="text-center mb-4">Enroll Here</h2>
-        <form class="row g-3">
-          <div class="col-md-6">
-            <label for="inputtext" class="form-label">First name</label>
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-          </div>
-          <div class="col-md-6">
-             <label for="inputtext" class="form-label">Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-          </div>
-          <div class="col-6">
-            <label for="inputphonenumber" class="form-label">Phone Number </label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Phone Number">
-          </div>
-          <div class="col-6">
-            <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder=" Current Address">
-          </div>
-          <div class="col-md-4">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="City">
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>maharasgtra </option>
-              <option > Asam</option>
-              <option > Up</option>
-              <option >Karnatak</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-          
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip" placeholder="Zip Code">
-          </div>
-          <div class="col-md-4">
-          <label for="inputcheck" class="form-label">Gender</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-              <label class="form-check-label" for="radioDefault1">
-                female
-              </label>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="enrollment-container">
+                    <!-- Header -->
+                    <div class="enrollment-header">
+                        <h2><i class="bi bi-pencil-square"></i> Enroll in UpSkillLab</h2>
+                        <p>Join thousands of students advancing their careers with our courses</p>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form -->
+                    <div class="enrollment-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <!-- Personal Information Section -->
+                            <div class="form-section">
+                                <h4 class="section-title"><i class="bi bi-person-circle"></i> Personal Information</h4>
+                                
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label required-field">First name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="Your first name" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your first name.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label required-field">Last name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Your last name" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your last name.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label required-field">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label required-field">Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                        <input type="tel" class="form-control" id="phone" placeholder="Your phone number" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide your phone number.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label required-field">Gender</label>
+                                    <div class="d-flex gap-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                                            <label class="form-check-label" for="female">
+                                                Female
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                            <label class="form-check-label" for="male">
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                                            <label class="form-check-label" for="other">
+                                                Other
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Address Information Section -->
+                            <div class="form-section">
+                                <h4 class="section-title"><i class="bi bi-geo-alt"></i> Address Information</h4>
+                                
+                                <div class="col-12">
+                                    <label for="address" class="form-label required-field">Address</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Your current address" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your address.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <label for="city" class="form-label required-field">City</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Your city" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your city.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <label for="state" class="form-label required-field">State</label>
+                                    <select id="state" class="form-select" required>
+                                        <option value="" selected disabled>Choose...</option>
+                                        <option>Maharashtra</option>
+                                        <option>Assam</option>
+                                        <option>Uttar Pradesh</option>
+                                        <option>Karnataka</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select your state.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <label for="zipCode" class="form-label required-field">Zip Code</label>
+                                    <input type="text" class="form-control" id="zipCode" placeholder="Zip code" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your zip code.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Account Security Section -->
+                            <div class="form-section">
+                                <h4 class="section-title"><i class="bi bi-shield-lock"></i> Account Security</h4>
+                                
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label required-field">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                        <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please create a password.
+                                    </div>
+                                    <div class="form-text">Must be at least 8 characters long</div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="confirmPassword" class="form-label required-field">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please confirm your password.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Information Section -->
+                            <div class="form-section">
+                                <h4 class="section-title"><i class="bi bi-chat-dots"></i> Additional Information</h4>
+                                
+                                <div class="col-12">
+                                    <label for="feedback" class="form-label">How did you hear about us?</label>
+                                    <select class="form-select" id="feedback">
+                                        <option selected>Select an option...</option>
+                                        <option>Search Engine</option>
+                                        <option>Social Media</option>
+                                        <option>Friend or Colleague</option>
+                                        <option>Advertisement</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-12 mt-3">
+                                    <label for="comments" class="form-label">Comments or Questions</label>
+                                    <textarea class="form-control" id="comments" rows="3" placeholder="Any additional information you'd like to share..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Terms and Submit -->
+                            <div class="col-12">
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="#" class="text-primary">Terms and Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-submit">Complete Enrollment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
-              <label class="form-check-label" for="radioDefault2">
-                male
-              </label>
-            </div>
-          </div>
-          <div class="col-8 p-4">
-            <div class="form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 100px"></textarea>
-              <label for="floatingTextarea2">Feadback</label>
-            </div>
-          </div>
-        <div class="position-relative">
-          <div class="position-absolute top-50 start-50 translate-middle mb-5">
-            <button type="submit" class="btn btn-outline-primary">Submit </button>
-          </div>
         </div>
-        </form>
+    </div>
+
+    <!-- Bootstrap JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Form Validation Script -->
+    <script>
+        (function () {
+            'use strict'
+            
+            // Fetch the form we want to apply validation to
+            var form = document.querySelector('.needs-validation')
+            
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                } else {
+                    event.preventDefault()
+                    // Here you would normally submit the form
+                    // For demo purposes, we'll show a success message
+                    alert('Enrollment submitted successfully! We will contact you shortly.')
+                    form.reset()
+                    form.classList.remove('was-validated')
+                    return false
+                }
+                
+                form.classList.add('was-validated')
+            }, false)
+        })()
+        
+        // Confirm password validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = this.value;
+            
+            if (password !== confirmPassword) {
+                this.setCustomValidity("Passwords do not match");
+            } else {
+                this.setCustomValidity("");
+            }
+        });
+    </script>
 </body>
 </html>

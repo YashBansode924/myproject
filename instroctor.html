@@ -3,12 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpSkillLab</title>
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Rode.css">
+    <title>Instructors - UpSkillLab</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #059669;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #334155;
+        }
+        
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            margin: 0 0.2rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .btn-enroll {
+            background-color: #ffc107;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .breadcrumb {
+            justify-content: center;
+            background: transparent;
+            margin-bottom: 0;
+        }
+        
+        /* Instructor Cards */
+        .instructors {
+            padding: 2rem 0;
+        }
+        
+        .instructor-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            background: white;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .instructor-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instructor-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .instructor-card:hover .instructor-image img {
+            transform: scale(1.05);
+        }
+        
+        .overlay-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .rating-stars, .course-count {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .rating-stars {
+            color: var(--warning);
+        }
+        
+        .course-count {
+            color: white;
+        }
+        
+        .instructor-info {
+            padding: 1.5rem;
+        }
+        
+        .instructor-info h5 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .specialty {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .description {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 0.8rem;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+        }
+        
+        .number {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .label {
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #f1f5f9;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            margin-top: 4rem;
+            color: white;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Loading animation for cards */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .instructor-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .instructor-card:nth-child(1) { animation-delay: 0.1s; }
+        .instructor-card:nth-child(2) { animation-delay: 0.2s; }
+        .instructor-card:nth-child(3) { animation-delay: 0.3s; }
+        .instructor-card:nth-child(4) { animation-delay: 0.4s; }
+        .instructor-card:nth-child(5) { animation-delay: 0.5s; }
+        .instructor-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 2rem 0;
+            }
+            
+            .overlay-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
             <div class="container">
@@ -32,263 +318,287 @@
             </div>
         </nav>
     </header>
-      <div class="page-title light-background">
-      <div class="container d-lg-flex justify-content-between ">
-        <h1 class="mb-2 mb-lg-0" style="color: #223a58;">Instructors</h1>
-        <nav class="breadcrumbs">
-        </nav>
-      </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Expert Instructors</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Instructors</li>
+                </ol>
+            </nav>
+        </div>
     </div>
-      
-   
 
     <!-- Instructors Section -->
     <section id="instructors" class="instructors">
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-md-4 pricing-card  mt-5 mb-5">
-            <div class="instructor-card  mt-2 ">
-              <div class="instructor-image">
-                <img src="image/1.webp" class="img-fluid" alt="">
-                <div class="overlay-content">
-                  <div class="rating-starts">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>4.8</span>
-                  </div>
-                  <div class="course-count">
-                    <i class="bi bi-play-circle"></i>
-                    <span>18 Courses</span>
-                  </div>
+        <div class="container">
+            <div class="row">
+                <!-- Instructor 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="instructor-card">
+                        <div class="instructor-image">
+                            <img src="https://placehold.co/600x400/2563eb/white?text=Sarah+Johnson" alt="Sarah Johnson">
+                            <div class="overlay-content">
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="course-count">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>18 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h5>Sarah Johnson</h5>
+                            <p class="specialty">Web Development</p>
+                            <p class="description">Web development is the process of creating websites and web applications that run on the internet. It involves everything from designing the layout to coding functionality.</p>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="number">2.1k</span>
+                                    <span class="label">Students</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="number">4.8</span>
+                                    <span class="label">Rating</span>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="instructor-info p-3">
-                <h5>Sarah Johnson</h5>
-                <p class="specialty">Web Development</p>
-                <p class="description">Web development is the process of creating websites and web applications that run on the internet. It involves everything from designing the layout to coding functionality and making it live on a server.</p>
-                <div class="stats-grid">
-                  <div class="stat">
-                    <span class="number">2.1k</span>
-                    <span class="label">Students</span>
-                  </div>
-                  <div class="stat">
-                    <span class="number">4.8</span>
-                    <span class="label">Rating</span>
-                  </div>
+
+                <!-- Instructor 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="instructor-card">
+                        <div class="instructor-image">
+                            <img src="https://placehold.co/600x400/059669/white?text=Michael+Chen" alt="Michael Chen">
+                            <div class="overlay-content">
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="course-count">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>24 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h5>Michael Chen</h5>
+                            <p class="specialty">Data Science</p>
+                            <p class="description">Data Science is a field that involves collecting, analyzing, and interpreting large amounts of data to gain insights and support decision-making.</p>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="number">3.5k</span>
+                                    <span class="label">Students</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="number">4.9</span>
+                                    <span class="label">Rating</span>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-               
-              </div>
+
+                <!-- Instructor 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="instructor-card">
+                        <div class="instructor-image">
+                            <img src="https://placehold.co/600x400/8b5cf6/white?text=Amanda+Rodriguez" alt="Amanda Rodriguez">
+                            <div class="overlay-content">
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span>4.6</span>
+                                </div>
+                                <div class="course-count">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>15 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h5>Amanda Rodriguez</h5>
+                            <p class="specialty">UX Design</p>
+                            <p class="description">UX Design is the process of designing digital products that are easy, smooth, and enjoyable for users to use. It focuses on the experience a user has.</p>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="number">1.8k</span>
+                                    <span class="label">Students</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="number">4.6</span>
+                                    <span class="label">Rating</span>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="instructor-card">
+                        <div class="instructor-image">
+                            <img src="https://placehold.co/600x400/f59e0b/white?text=David+Thompson" alt="David Thompson">
+                            <div class="overlay-content">
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span>4.7</span>
+                                </div>
+                                <div class="course-count">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>21 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h5>David Thompson</h5>
+                            <p class="specialty">Digital Marketing</p>
+                            <p class="description">Digital Marketing is the process of promoting products or services using digital platforms like websites, search engines, social media, and email.</p>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="number">2.9k</span>
+                                    <span class="label">Students</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="number">4.7</span>
+                                    <span class="label">Rating</span>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="instructor-card">
+                        <div class="instructor-image">
+                            <img src="https://placehold.co/600x400/2563eb/white?text=Lisa+Williams" alt="Lisa Williams">
+                            <div class="overlay-content">
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>5.0</span>
+                                </div>
+                                <div class="course-count">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>12 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h5>Lisa Williams</h5>
+                            <p class="specialty">Business Analytics</p>
+                            <p class="description">Business Analytics involves using data, statistical analysis, and predictive modeling to drive business planning and decision-making processes.</p>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="number">4.2k</span>
+                                    <span class="label">Students</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="number">5.0</span>
+                                    <span class="label">Rating</span>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="instructor-card">
+                        <div class="instructor-image">
+                            <img src="https://placehold.co/600x400/059669/white?text=James+Anderson" alt="James Anderson">
+                            <div class="overlay-content">
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <div class="course-count">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>16 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="instructor-info">
+                            <h5>James Anderson</h5>
+                            <p class="specialty">Machine Learning</p>
+                            <p class="description">Machine Learning is a branch of AI where computers learn from data and improve their performance without being explicitly programmed for each task.</p>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="number">3.1k</span>
+                                    <span class="label">Students</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="number">4.5</span>
+                                    <span class="label">Rating</span>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="col-md-4 pricing-card   mt-5 mb-5 ">
-            <div class="instructor-card  mt-2">
-              <div class="instructor-image">
-                <img src="image/2.webp" class="img-fluid" alt="">
-                <div class="overlay-content">
-                  <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <span>4.9</span>
-                  </div>
-                  <div class="course-count">
-                    <i class="bi bi-play-circle"></i>
-                    <span>24 Courses</span>
-                  </div>
-                </div>
-              </div>
-              <div class="instructor-info p-3">
-                <h5>Michael Chen</h5>
-                <p class="specialty">Data Science</p>
-                <p class="description"> Data Scince is a field that involves collecting, analyzing, and interpreting large amounts of data to gain insights and support decision-making using statistics, programming, and machine learning.</p>
-                <div class="stats-grid">
-                  <div class="stat">
-                    <span class="number">3.5k</span>
-                    <span class="label">Students</span>
-                  </div>
-                  <div class="stat">
-                    <span class="number">4.9</span>
-                    <span class="label">Rating</span>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 pricing-card  mt-5 mb-5">
-            <div class="instructor-card mt-2">
-              <div class="instructor-image">
-                <img src="image/3.webp" class="img-fluid" alt="">
-                <div class="overlay-content">
-                  <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <span>4.6</span>
-                  </div>
-                  <div class="course-count">
-                    <i class="bi bi-play-circle"></i>
-                    <span>15 Courses</span>
-                  </div>
-                </div>
-              </div>
-              <div class="instructor-info p-3">
-                <h5>Amanda Rodriguez</h5>
-                <p class="specialty">UX Design</p>
-                <p class="description">UX (User Experience) Design is the process of designing digital products (like websites, apps) that are easy, smooth, and enjoyable for users to use. It focuses on the experience a user has while interacting with a product.</p>
-                <div class="stats-grid">
-                  <div class="stat">
-                    <span class="number">1.8k</span>
-                    <span class="label">Students</span>
-                  </div>
-                  <div class="stat">
-                    <span class="number">4.6</span>
-                    <span class="label">Rating</span>
-                  </div>
-                </div>
-              
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 pricing-card   mt-5 mb-5">
-            <div class="instructor-card  mt-2">
-              <div class="instructor-image">
-                <img src="image/4.webp" class="img-fluid" alt="">
-                <div class="overlay-content">
-                  <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>4.7</span>
-                  </div>
-                  <div class="course-count">
-                    <i class="bi bi-play-circle"></i>
-                    <span>21 Courses</span>
-                  </div>
-                </div>
-              </div>
-              <div class="instructor-info p-3">
-                <h5>David Thompson</h5>
-                <p class="specialty">Digital Marketing</p>
-                <p class="description">Digital Marketing is the process of promoting products or services using digital platforms like websites, search engines, social media, email, and mobile apps.
-                It is a modern form of marketing done through the internet and electronic devices.</p>
-                <div class="stats-grid">
-                  <div class="stat">
-                    <span class="number p-4">2.9k</span>
-                    <span class="label p-4">Students</span>
-                  </div>
-                  <div class="stat">
-                    <span class="number p-4">4.7</span>
-                    <span class="label p-4">Rating</span>
-                  </div>
-                </div>
-              
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 pricing-card   mt-5 mb-5">
-            <div class="instructor-card  mt-2">
-              <div class="instructor-image">
-                <img src="image/5.webp" class="img-fluid" alt="">
-                <div class="overlay-content">
-                  <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <span>5.0</span>
-                  </div>
-                  <div class="course-count">
-                    <i class="bi bi-play-circle"></i>
-                    <span>12 Courses</span>
-                  </div>
-                </div>
-              </div>
-              <div class="instructor-info p-3">
-                <h5>Lisa Williams</h5>
-                <p class="specialty">Business Analytics</p>
-                <p class="description">Digital Marketing is the process of promoting products or services using digital platforms like websites, search engines, social media, email, and mobile apps.
-                 It is a modern form of marketing done through the internet and electronic devices.</p>
-                <div class="stats-grid">
-                  <div class="stat">
-                    <span class="number">4.2k</span>
-                    <span class="label">Students</span>
-                  </div>
-                  <div class="stat">
-                    <span class="number">5.0</span>
-                    <span class="label">Rating</span>
-                  </div>
-                </div>
-               
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 pricing-card   mt-5 mb-5">
-            <div class="instructor-card mt-2">
-              <div class="instructor-image">
-                <img src="image/6.webp" class="img-fluid" alt="">
-                <div class="overlay-content">
-                  <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <span>4.5</span>
-                  </div>
-                  <div class="course-count">
-                    <i class="bi bi-play-circle"></i>
-                    <span>16 Courses</span>
-                  </div>
-                </div>
-              </div>
-              <div class="instructor-info p-3">
-                <h5>James Anderson</h5>
-                <p class="specialty p-0">Machine Learning</p>
-                <p class="description">Machine Learning (ML) is a branch of Artificial Intelligence (AI) where computers learn from data and improve their performance without being explicitly programmed
-                  mchine learning is teaching computer to learn from past experience.</p>
-                <div class="stats-grid">
-                  <div class="stat">
-                    <span class="number">3.1k</span>
-                    <span class="label">Students</span>
-                  </div>
-                  <div class="stat">
-                    <span class="number">4.5</span>
-                    <span class="label">Rating</span>
-                  </div>
-                </div>
-               
-              </div>
-            </div>
-          </div>
-
-
-
         </div>
-
-      </div>
-
     </section>
-    <!-- footer srat here -->
-    <footer class="footer text-white pt-5" style="background-color: #1664c0;">
+
+    <!-- Footer -->
+    <footer class="footer text-white pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -298,30 +608,30 @@
                         valies darta donna mare fermentum iaculis eu non diam phasellus.
                     </p>
                     <div class="d-flex gap-3 mt-3">
-                        <span class="social-icon"><i class="bi bi-twitter"></i></span>
-                        <span class="social-icon"><i class="bi bi-facebook"></i></span>
-                        <span class="social-icon"><i class="bi bi-instagram"></i></span>
-                        <span class="social-icon"><i class="bi bi-linkedin"></i></span>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h6 class="fw-bold">Useful Links</h6>
                     <ul class="list-unstyled">
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Services</li>
-                        <li>Terms of service</li>
-                        <li>Privacy policy</li>
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About us</a></li>
+                        <li><a href="course.html" class="text-white text-decoration-none">Courses</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Terms of service</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h6 class="fw-bold">Our Services</h6>
                     <ul class="list-unstyled">
-                        <li>Web Design</li>
-                        <li>Web Development</li>
-                        <li>Product Management</li>
-                        <li>Marketing</li>
-                        <li>Graphic Design</li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Design</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Development</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Product Management</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Marketing</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Graphic Design</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -333,10 +643,23 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom text-center py-3" style="background-color: #1460bb;">
-            <p class="mb-1">© Copyright <strong>Learner</strong> All Rights Reserved</p>
+        <div class="footer-bottom text-center py-3">
+            <p class="mb-1">© Copyright <strong>UpSkillLab</strong> All Rights Reserved</p>
             <p class="small">Designed by <a href="#" class="text-white text-decoration-none">BootstrapMade</a></p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple animation for instructor cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.instructor-card');
+            
+            // Add animation delay to each card
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>

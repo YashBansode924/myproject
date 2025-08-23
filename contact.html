@@ -3,11 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpSkillLab</title>
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Contact Us - UpSkillLab</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/new.css">
+    <style>
+        :root {
+            --primary-color: #1664c0;
+            --secondary-color: #1460bb;
+            --accent-color: #0d6efd;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        .btn-enroll {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-enroll:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .contact-header {
+            background: linear-gradient(rgba(22, 100, 192, 0.9), rgba(22, 100, 192, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231464c0"/><path d="M0 0L100 100" stroke="%231460bb" stroke-width="2"/><path d="M100 0L0 100" stroke="%231460bb" stroke-width="2"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-card {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Success message styling */
+        .alert-success {
+            display: none;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <header class="sticky-top">
@@ -19,7 +129,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                         <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="course.html">Courses</a></li>
                         <li class="nav-item"><a class="nav-link" href="instroctor.html">Instructors</a></li>
@@ -33,95 +143,173 @@
             </div>
         </nav>
     </header>
-    <!-- section sart here -->
-      <div class="container my-5 ">
-    <div class="row">
-      <div class="col-md-6 ">
-        <h2 class="text-center mb-4">Get in Touch</h2>
-        <form class="row g-3">
-          <div class="col-md-6">
-            <label for="inputtext" class="form-label">First name</label>
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-          </div>
-          <div class="col-md-6">
-             <label for="inputtext" class="form-label">Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-          </div>
-          <div class="col-6">
-            <label for="inputphonenumber" class="form-label">Phone Number </label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Phone Number">
-          </div>
-          <div class="col-6">
-            <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder=" Current Address">
-          </div>
-          <div class="col-md-4">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="City">
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>maharasgtra </option>
-              <option > Asam</option>
-              <option > Up</option>
-              <option >Karnatak</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-          
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip" placeholder="Zip Code">
-          </div>
-          <div class="col-md-4">
-          <label for="inputcheck" class="form-label">Gender</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-              <label class="form-check-label" for="radioDefault1">
-                female
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
-              <label class="form-check-label" for="radioDefault2">
-                male
-              </label>
-            </div>
-          </div>
-          <div class="col-8 p-4">
-            <div class="form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 100px"></textarea>
-              <label for="floatingTextarea2">Feadback</label>
-            </div>
-          </div>
-        <div class="position-relative">
-          <div class="position-absolute top-50 start-50 translate-middle mb-5">
-            <button type="submit" class="btn btn-outline-primary">Submit </button>
-          </div>
+
+    <!-- Contact Header Section -->
+    <section class="contact-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Get In Touch</h1>
+            <p class="lead">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
         </div>
-        </form>
+    </section>
 
+    <!-- Contact Info Cards -->
+    <section class="container mb-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="contact-card card h-100 border-0 text-center p-4">
+                    <div class="card-body">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h5 class="card-title">Our Location</h5>
+                        <p class="card-text">A108 Adam Street, New York, NY 535022, United States</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-card card h-100 border-0 text-center p-4">
+                    <div class="card-body">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h5 class="card-title">Email Us</h5>
+                        <p class="card-text">info@example.com<br>contact@upskilllab.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-card card h-100 border-0 text-center p-4">
+                    <div class="card-body">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h5 class="card-title">Call Us</h5>
+                        <p class="card-text">+1 5589 55488 55<br>+1 6678 254445 41</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Form & Map Section -->
+    <section class="container mb-5">
+        <div class="alert alert-success" role="alert" id="successMessage">
+            <i class="bi bi-check-circle-fill me-2"></i> Thank you for your message! We'll get back to you soon.
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">Send us a Message</h3>
+                        <form id="contactForm" class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Your first name" required>
+                                <div class="invalid-feedback">
+                                    Please provide your first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Your last name" required>
+                                <div class="invalid-feedback">
+                                    Please provide your last name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Your phone number">
+                            </div>
+                            <div class="col-12">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Message subject" required>
+                                <div class="invalid-feedback">
+                                    Please provide a subject.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your message" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please provide a message.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-submit mt-3">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="mb-4">Visit Our Location</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30246.88614321975!2d73.8033664!3d18.625331199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1751873499266!5m2!1sen!2sin" 
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="mt-4">
+                    <h5>Office Hours</h5>
+                    <p class="mb-1">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p class="mb-1">Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      </div>
-      <div class="col-md-6">
-        <h2 class="text-center mb-4">Map</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30246.88614321975!2d73.8033664!3d18.625331199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1751873499266!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-    </div>
-    <!-- footer srat here -->
-    <footer class="footer text-white pt-5" style="background-color: #1664c0;">
+    <!-- FAQ Section -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        How quickly do you respond to inquiries?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        Do you offer in-person consultations?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, we offer in-person consultations by appointment. Please contact us to schedule a meeting at our office.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        What's the best way to get support for course-related issues?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        For course-related support, please use the support system within your student dashboard. This ensures your request is directed to the right team quickly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-white pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -131,30 +319,30 @@
                         valies darta donna mare fermentum iaculis eu non diam phasellus.
                     </p>
                     <div class="d-flex gap-3 mt-3">
-                        <span class="social-icon"><i class="bi bi-twitter"></i></span>
-                        <span class="social-icon"><i class="bi bi-facebook"></i></span>
-                        <span class="social-icon"><i class="bi bi-instagram"></i></span>
-                        <span class="social-icon"><i class="bi bi-linkedin"></i></span>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h6 class="fw-bold">Useful Links</h6>
                     <ul class="list-unstyled">
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Services</li>
-                        <li>Terms of service</li>
-                        <li>Privacy policy</li>
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About us</a></li>
+                        <li><a href="course.html" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Terms of service</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h6 class="fw-bold">Our Services</h6>
                     <ul class="list-unstyled">
-                        <li>Web Design</li>
-                        <li>Web Development</li>
-                        <li>Product Management</li>
-                        <li>Marketing</li>
-                        <li>Graphic Design</li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Design</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Development</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Product Management</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Marketing</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Graphic Design</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -166,10 +354,50 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom text-center py-3" style="background-color: #1460bb;">
-            <p class="mb-1">© Copyright <strong>Learner</strong> All Rights Reserved</p>
+        <div class="footer-bottom text-center py-3">
+            <p class="mb-1">© Copyright <strong>UpSkillLab</strong> All Rights Reserved</p>
             <p class="small">Designed by <a href="#" class="text-white text-decoration-none">BootstrapMade</a></p>
         </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            
+            // Fetch the form we want to apply custom Bootstrap validation styles to
+            var form = document.getElementById('contactForm')
+            
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                } else {
+                    event.preventDefault()
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block'
+                    // Reset form
+                    form.reset()
+                    form.classList.remove('was-validated')
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({behavior: 'smooth'})
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        document.getElementById('successMessage').style.display = 'none'
+                    }, 5000)
+                    
+                    return false
+                }
+                
+                form.classList.add('was-validated')
+            }, false)
+        })()
+    </script>
 </body>
 </html>

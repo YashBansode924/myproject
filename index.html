@@ -7,12 +7,344 @@
     <title>UpSkillLab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    
-    <link rel="stylesheet" href="css/new.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-       
+        /* Custom CSS for enhanced styling */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #059669;
+            --purple: #8b5cf6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Improved navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            margin: 0 0.2rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .btn-enroll {
+            background-color: #ffc107;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        /* Hero section improvements */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+        }
+        
+        h1.display-5 {
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stats .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .stats small {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .course-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .course-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* Featured courses section */
+        .card.course-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .card.course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .course-image {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card.course-card:hover .course-image {
+            transform: scale(1.05);
+        }
+        
+        .badge-position {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1;
+        }
+        
+        .price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .category-badge {
+            background: #e0f2fe;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        
+        .course-title {
+            font-weight: 700;
+            margin: 1rem 0 0.5rem 0;
+        }
+        
+        .course-desc {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .instructor-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .rating-stars {
+            color: #f59e0b;
+        }
+        
+        .rating-text {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .view-courses-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .view-courses-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            color: white;
+        }
+        
+        /* Categories section */
+        .category-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover, .category-card.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transform: translateY(-5px);
+        }
+        
+        .category-card:hover h5, .category-card.active h5,
+        .category-card:hover p, .category-card.active p {
+            color: white !important;
+        }
+        
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rating-card {
+            background: white;
+            max-width: 400px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .badge-pill-link {
+            background: #e0f2fe;
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-pill-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Footer improvements */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+            margin-top: 4rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 0;
+                text-align: center;
+            }
+            
+            h1.display-5 {
+                font-size: 2.2rem;
+            }
+            
+            .stats .number {
+                font-size: 2rem;
+            }
+            
+            .course-card {
+                margin-bottom: 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -40,7 +372,7 @@
             </div>
         </nav>
     </header>
-    <!-- Home Sart heare -->
+    <!-- Home Start here -->
     <main>
         <section class="hero">
             <div class="container">
@@ -98,8 +430,8 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-center position-relative">
-                        <img src="image/courses-1.webp" alt="Learning" class="img-fluid rounded-4">
-                        <div class="position-absolute top-0 course-card">
+                        <img src="image/courses-1.webp" alt="Learning" class="img-fluid rounded-4 hidden">
+                        <div class="position-absolute top-0 course-card hidden">
                             <div class="d-flex align-items-center">
                                 <div class="course-icon">&lt;/&gt;</div>
                                 <div>
@@ -108,7 +440,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-absolute bottom-0 start-0 mb-4 ms-5 course-card">
+                        <div class="position-absolute bottom-0 start-0 mb-4 ms-5 course-card hidden">
                             <div class="d-flex align-items-center">
                                 <div class="course-icon">📈</div>
                                 <div>
@@ -117,7 +449,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-absolute bottom-0 end-0 mb-4 me-5 course-card">
+                        <div class="position-absolute bottom-0 end-0 mb-4 me-5 course-card hidden">
                             <div class="d-flex align-items-center">
                                 <div class="course-icon">🎨</div>
                                 <div>
@@ -259,27 +591,27 @@
                 </div>
             </div>
             <div class="container text-center my-5">
-                <a href="course.html" class="btn view-courses-btn">
+                <a href="course.html" class="btn view-courses-btn hidden">
                     View All Courses
                 </a>
             </div>
         </section>
-        <!-- Third section sart here -->
+        <!-- Third section start here -->
         <section class="">
             <div class="container py-5 text-center">
                 <div class="d-flex justify-content-center align-items-center mb-2">
                     <div style="width: 50px; height: 2px; background-color: #2563eb;"></div>
-                    <h2 class="mx-3 fw-bold" style="font-size: 2rem; color: #1e293b;">Course Categories</h2>
+                    <h2 class="mx-3 fw-bold hidden" style="font-size: 2rem; color: #1e293b;">Course Categories</h2>
                     <div style="width: 50px; height: 2px; background-color: #2563eb;"></div>
                 </div>
-                <p class="text-secondary" style="font-size: 1.05rem;">
+                <p class="text-secondary hidden" style="font-size: 1.05rem;">
                     Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
                 </p>
             </div>
             <div class="container text-center py-5">
                 <div class="row justify-content-center g-4">
                     <div class="col-12 col-sm-6 col-md-4">
-                        <div class="category-card border border-primary rounded-4 p-4 shadow-sm active">
+                        <div class="category-card border border-primary rounded-4 p-4 shadow-sm active hidden">
                             <div class="icon-circle bg-gradient text-white mb-3 mx-auto" style="background: #2563eb;">
                                 <i class="bi bi-laptop" style="font-size: 1.5rem;"></i>
                             </div>
@@ -288,7 +620,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4">
-                        <div class="category-card border border-primary p-4 rounded-4">
+                        <div class="category-card border border-primary p-4 rounded-4 hidden">
                             <div class="icon-circle text-white mb-3 mx-auto" style="background: #059669;">
                                 <i class="bi bi-briefcase" style="font-size: 1.5rem;"></i>
                             </div>
@@ -297,7 +629,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4">
-                        <div class="category-card  border border-primary p-4 rounded-4">
+                        <div class="category-card  border border-primary p-4 rounded-4 hidden">
                             <div class="icon-circle text-white mb-3 mx-auto" style="background: #8b5cf6;">
                                 <i class="bi bi-palette" style="font-size: 1.5rem;"></i>
                             </div>
@@ -308,7 +640,7 @@
                 </div>
             </div>
             <div class="container my-5 d-flex justify-content-center">
-                <div class="rating-card text-center p-4 rounded-4 shadow-sm">
+                <div class="rating-card text-center p-4 rounded-4 shadow-sm hidden">
                     <h2 class="fw-bold text-dark" style="font-size: 2.5rem;">4.8</h2>
                     <div class="my-2">
                         <i class="bi bi-star-fill text-warning fs-4"></i>
@@ -327,8 +659,8 @@
             </div>
         </section>
     </main>
-    <!-- footer srat here -->
-    <footer class="footer text-white pt-5" style="background-color: #1664c0;">
+    <!-- footer start here -->
+    <footer class="footer text-white pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -338,30 +670,30 @@
                         valies darta donna mare fermentum iaculis eu non diam phasellus.
                     </p>
                     <div class="d-flex gap-3 mt-3">
-                        <span class="social-icon"><i class="bi bi-twitter"></i></span>
-                        <span class="social-icon"><i class="bi bi-facebook"></i></span>
-                        <span class="social-icon"><i class="bi bi-instagram"></i></span>
-                        <span class="social-icon"><i class="bi bi-linkedin"></i></span>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h6 class="fw-bold">Useful Links</h6>
                     <ul class="list-unstyled">
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Services</li>
-                        <li>Terms of service</li>
-                        <li>Privacy policy</li>
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About us</a></li>
+                        <li><a href="course.html" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Terms of service</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h6 class="fw-bold">Our Services</h6>
                     <ul class="list-unstyled">
-                        <li>Web Design</li>
-                        <li>Web Development</li>
-                        <li>Product Management</li>
-                        <li>Marketing</li>
-                        <li>Graphic Design</li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Design</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Development</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Product Management</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Marketing</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Graphic Design</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -373,26 +705,73 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom text-center py-3" style="background-color: #1460bb;">
+        <div class="footer-bottom text-center py-3">
             <p class="mb-1">© Copyright <strong>Learner</strong> All Rights Reserved</p>
             <p class="small">Designed by <a href="#" class="text-white text-decoration-none">BootstrapMade</a></p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-        
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  });
+            document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
 
-  document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+            // Stats counter animation
+            const counters = document.querySelectorAll('.number');
+            let started = false;
 
+            function startCounters() {
+                if (started) return;
+                started = true;
+                
+                counters.forEach(counter => {
+                    const target = +counter.innerText;
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 20);
+                    
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    
+                    updateCount();
+                });
+            }
 
+            // Check if stats section is in view
+            const statsSection = document.querySelector('.stats');
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounters();
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
     </script>
 </body>
 

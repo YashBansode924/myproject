@@ -4,13 +4,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpSkillLab</title>
+    <title>Pricing - UpSkillLab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/Rode.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #059669;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #334155;
+        }
+        
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            margin: 0 0.2rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .btn-enroll {
+            background-color: #ffc107;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .breadcrumb {
+            justify-content: center;
+            background: transparent;
+            margin-bottom: 0;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            padding: 2rem 0 4rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            background: white;
+            height: 100%;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.03);
+        }
+        
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-bottom-left-radius: 12px;
+        }
+        
+        .pricing-header {
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+        }
+        
+        .pricing-header h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+        
+        .price-period {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .pricing-features {
+            padding: 1.5rem 2rem;
+        }
+        
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+        }
+        
+        .features li {
+            padding: 0.5rem 0;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li i {
+            color: var(--success);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-cta {
+            padding: 0 2rem 2rem;
+        }
+        
+        .btn-pricing {
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 4rem 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title h3 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .accordion-item {
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .accordion-button {
+            padding: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            background: white;
+            box-shadow: none;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            color: var(--primary);
+            background: #f0f9ff;
+        }
+        
+        .accordion-body {
+            padding: 1rem 1.25rem 1.25rem;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            margin-top: 4rem;
+            color: white;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .page-header {
+                padding: 2rem 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Navigation -->
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
             <div class="container">
@@ -20,7 +317,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="course.html">Courses</a></li>
                         <li class="nav-item"><a class="nav-link" href="instroctor.html">Instructors</a></li>
@@ -34,67 +331,164 @@
             </div>
         </nav>
     </header>
-      <div class="page-title">
-      <div class="container ">
-        <h1 class="mb-2 mb-lg-0" style="color: #223a58;">Price</h1>
-        <nav class="breadcrumbs">
-        </nav>
-      </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Simple, Transparent Pricing</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pricing</li>
+                </ol>
+            </nav>
+        </div>
     </div>
-     
-   <body class="bg-light">
 
-  <div class="container py-5">
-    <h2 class="text-center mb-4 " style="color: #223a58;"> Our Course Pricing Plans</h2>
-    <div class="row g-4">
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Course Pricing Plans</h2>
+                <p>Choose the plan that works best for your learning journey. All plans include access to our premium learning resources.</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Basic Plan -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Basic Plan</h4>
+                            <p class="price">₹999</p>
+                            <p class="price-period">one-time payment</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="features">
+                                <li><i class="bi bi-check-circle-fill"></i> 3 Courses Access</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Weekly Doubt Sessions</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Email Support</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Downloadable Resources</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Community Access</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="enroll.html" class="btn btn-outline-primary btn-pricing" target="_blank">Get Started</a>
+                        </div>
+                    </div>
+                </div>
 
-      <!-- Basic Plan -->
-      <div class="col-md-4">
-        <div class="pricing-card bg-white text-center p-4">
-          <h4>Basic Plan</h4>
-          <p class="price text-primary">₹999</p>
-          <ul class="features list-unstyled text-start mb-4">
-            <li>3 Courses Access</li>
-            <li>Weekly Doubt Sessions</li>
-            <li>Email Support</li>
-          </ul>
-          <a href="enroll.html" class="btn btn-outline-primary w-100" target="_blank">Enroll Now</a>
+                <!-- Standard Plan -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card popular">
+                        <div class="pricing-header">
+                            <h4>Standard Plan</h4>
+                            <p class="price">₹1,999</p>
+                            <p class="price-period">one-time payment</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="features">
+                                <li><i class="bi bi-check-circle-fill"></i> 10 Courses Access</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Live Classes</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Certificate on Completion</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Priority Email Support</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Project Files & Resources</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="enroll.html" class="btn btn-primary btn-pricing" target="_blank">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Premium Plan</h4>
+                            <p class="price">₹2,999</p>
+                            <p class="price-period">one-time payment</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="features">
+                                <li><i class="bi bi-check-circle-fill"></i> All Courses Access</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 1-on-1 Mentorship</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Lifetime Access + Support</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Exclusive Webinars</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Career Guidance Sessions</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="enroll.html" class="btn btn-outline-primary btn-pricing" target="_blank">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Standard Plan -->
-      <div class="col-md-4">
-        <div class="pricing-card bg-white text-center p-4 ">
-          <h4>Standard Plan</h4>
-          <p class="price text-primary">₹1,999</p>
-          <ul class="features list-unstyled text-start mb-4">
-            <li>10 Courses Access</li>
-            <li>Live Classes</li>
-            <li>Certificate on Completion</li>
-          </ul>
-          <a href="enroll.html" class="btn btn-outline-primary w-100" target="_blank">Enroll Now</a>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-title">
+                <h3>Frequently Asked Questions</h3>
+                <p>Find answers to common questions about our pricing and plans</p>
+            </div>
+            
+            <div class="accordion" id="pricingFAQ">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Can I switch plans at any time?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#pricingFAQ">
+                        <div class="accordion-body">
+                            Yes, you can upgrade your plan at any time. The price difference will be prorated based on the time remaining in your current billing cycle.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Do you offer refunds?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                        <div class="accordion-body">
+                            We offer a 14-day money-back guarantee on all plans. If you're not satisfied with our courses, you can request a full refund within 14 days of purchase.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Are the certificates recognized?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                        <div class="accordion-body">
+                            Yes, our certificates are recognized by industry professionals and can be shared on LinkedIn and other professional networks to showcase your skills.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            How do I access the courses after purchasing?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                        <div class="accordion-body">
+                            After purchasing a plan, you'll receive an email with login instructions. You can then access all your courses through our learning platform immediately.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Premium Plan -->
-      <div class="col-md-4">
-        <div class="pricing-card bg-white text-center p-4">
-          <h4>Premium Plan</h4>
-          <p class="price text-primary">₹2,999</p>
-          <ul class="features list-unstyled text-start mb-4">
-            <li>All Courses Access</li>
-            <li>1-on-1 Mentorship</li>
-            <li>Lifetime Access + Support</li>
-          </ul>
-          <a href="enroll.html" class="btn btn-outline-primary w-100" target="_blank">Enroll Now</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-   
-    <!-- footer srat here -->
-    <footer class="footer text-white pt-5" style="background-color: #1664c0;">
+    <!-- Footer -->
+    <footer class="footer text-white pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -104,30 +498,30 @@
                         valies darta donna mare fermentum iaculis eu non diam phasellus.
                     </p>
                     <div class="d-flex gap-3 mt-3">
-                        <span class="social-icon"><i class="bi bi-twitter"></i></span>
-                        <span class="social-icon"><i class="bi bi-facebook"></i></span>
-                        <span class="social-icon"><i class="bi bi-instagram"></i></span>
-                        <span class="social-icon"><i class="bi bi-linkedin"></i></span>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h6 class="fw-bold">Useful Links</h6>
                     <ul class="list-unstyled">
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Services</li>
-                        <li>Terms of service</li>
-                        <li>Privacy policy</li>
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About us</a></li>
+                        <li><a href="course.html" class="text-white text-decoration-none">Courses</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Terms of service</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h6 class="fw-bold">Our Services</h6>
                     <ul class="list-unstyled">
-                        <li>Web Design</li>
-                        <li>Web Development</li>
-                        <li>Product Management</li>
-                        <li>Marketing</li>
-                        <li>Graphic Design</li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Design</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Web Development</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Product Management</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Marketing</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Graphic Design</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -139,12 +533,11 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom text-center py-3" style="background-color: #1460bb;">
-            <p class="mb-1">© Copyright <strong>Learner</strong> All Rights Reserved</p>
+        <div class="footer-bottom text-center py-3">
+            <p class="mb-1">© Copyright <strong>UpSkillLab</strong> All Rights Reserved</p>
             <p class="small">Designed by <a href="#" class="text-white text-decoration-none">BootstrapMade</a></p>
         </div>
     </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
