@@ -7,345 +7,7 @@
     <title>UpSkillLab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Custom CSS for enhanced styling */
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #64748b;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --success: #059669;
-            --purple: #8b5cf6;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            overflow-x: hidden;
-        }
-        
-        /* Improved navbar */
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
-        }
-        
-        .navbar-brand {
-            font-size: 1.8rem;
-        }
-        
-        .nav-link {
-            font-weight: 500;
-            position: relative;
-            margin: 0 0.2rem;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: white;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        .btn-enroll {
-            background-color: #ffc107;
-            color: var(--dark);
-            font-weight: 600;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-enroll:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        
-        /* Hero section improvements */
-        .hero {
-            padding: 5rem 0;
-            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
-        }
-        
-        h1.display-5 {
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        
-        .lead {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-        
-        .stats .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-        
-        .stats small {
-            font-size: 0.9rem;
-            color: var(--secondary);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border: none;
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
-        }
-        
-        .btn-outline-primary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-primary:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .course-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .course-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.8rem;
-            font-weight: bold;
-        }
-        
-        /* Featured courses section */
-        .card.course-card {
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .card.course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .course-image {
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .card.course-card:hover .course-image {
-            transform: scale(1.05);
-        }
-        
-        .badge-position {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 1;
-        }
-        
-        .price-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: white;
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 700;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .category-badge {
-            background: #e0f2fe;
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-        }
-        
-        .course-title {
-            font-weight: 700;
-            margin: 1rem 0 0.5rem 0;
-        }
-        
-        .course-desc {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-        
-        .instructor-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .rating-stars {
-            color: #f59e0b;
-        }
-        
-        .rating-text {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-        
-        .view-courses-btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 0.8rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .view-courses-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
-            color: white;
-        }
-        
-        /* Categories section */
-        .category-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .category-card:hover, .category-card.active {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            transform: translateY(-5px);
-        }
-        
-        .category-card:hover h5, .category-card.active h5,
-        .category-card:hover p, .category-card.active p {
-            color: white !important;
-        }
-        
-        .icon-circle {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .rating-card {
-            background: white;
-            max-width: 400px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .badge-pill-link {
-            background: #e0f2fe;
-            color: var(--primary);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .badge-pill-link:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        /* Footer improvements */
-        .footer {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
-            margin-top: 4rem;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        /* Animations */
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 0;
-                text-align: center;
-            }
-            
-            h1.display-5 {
-                font-size: 2.2rem;
-            }
-            
-            .stats .number {
-                font-size: 2rem;
-            }
-            
-            .course-card {
-                margin-bottom: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -430,36 +92,10 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-center position-relative">
-                        <img src="image/courses-1.webp" alt="Learning" class="img-fluid rounded-4 hidden">
-                        <div class="position-absolute top-0 course-card hidden">
-                            <div class="d-flex align-items-center">
-                                <div class="course-icon">&lt;/&gt;</div>
-                                <div>
-                                    <strong>Web Development</strong><br>
-                                    <small>2,450 Students</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="position-absolute bottom-0 start-0 mb-4 ms-5 course-card hidden">
-                            <div class="d-flex align-items-center">
-                                <div class="course-icon">📈</div>
-                                <div>
-                                    <strong>Digital Marketing</strong><br>
-                                    <small>3,200 Students</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0 mb-4 me-5 course-card hidden">
-                            <div class="d-flex align-items-center">
-                                <div class="course-icon">🎨</div>
-                                <div>
-                                    <strong>UI/UX Design</strong><br>
-                                    <small>1,890 Students</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <img src="image/indexelearingimage2.jpg" alt="Learning" class="img-fluid rounded-4 hidden">
+                        
+                            
+                
             </div>
         </section>
         <!-- second section start -->
@@ -479,7 +115,7 @@
                         <!-- Card 1 -->
                         <div class="col-md-4">
                             <div class="card course-card position-relative course-card hidden">
-                                <img src="image/students-1.webp" class="course-image img-fluid imga" alt="Marketing">
+                                <img src="image/digitalmarkatingindex2.jpg" class="course-image img-fluid imga" alt="Marketing">
                                 <span class="badge bg-primary badge-position">FEATURED</span>
                                 <span class="price-badge">$149</span>
                                 <div class="card-body">
@@ -488,12 +124,11 @@
                                         <span class="category-badge">8 Weeks</span>
                                     </div>
                                     <h5 class="course-title">Digital Marketing Fundamentals</h5>
-                                    <p class="course-desc">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                                        eiusmod tempor incididunt.</p>
+                                   
                                     <div class="d-flex align-items-center mt-3">
-                                        <img src="image/teach-1.webp" class="instructor-img me-2 " alt="Sarah Johnson">
+                                        <img src="image/indexintructor1.jpg" class="instructor-img me-2 " alt="Sarah Johnson">
                                         <div>
-                                            <strong>Sarah Johnson</strong><br>
+                                            <strong>John Weak</strong><br>
                                             <small class="text-muted">Marketing Expert</small>
                                         </div>
                                     </div>
@@ -515,7 +150,7 @@
                         <!-- Card 2 -->
                         <div class="col-md-4">
                             <div class="card course-card position-relative course-card hidden">
-                                <img src="image/campus-1.webp" class="course-image img-fluid imga" alt="JavaScript">
+                                <img src="image/javascriptindex1.jpg" class="course-image img-fluid imga" alt="JavaScript">
                                 <span class="badge bg-success badge-position">NEW</span>
                                 <span class="price-badge">$89</span>
                                 <div class="card-body">
@@ -524,13 +159,11 @@
                                         <span class="category-badge">6 Weeks</span>
                                     </div>
                                     <h5 class="course-title">Web Development with JavaScript</h5>
-                                    <p class="course-desc">Ut enim ad minim veniam quis nostrud exercitation ullamco
-                                        laboris
-                                        nisi ut aliquip.</p>
+                                    
                                     <div class="d-flex align-items-center mt-3">
-                                        <img src="image/teach-2.webp" class="instructor-img me-2 img-fluid " alt="Michael Chen">
+                                        <img src="image/indexinstructor2.jpg" class="instructor-img me-2 img-fluid " alt="Michael Chen">
                                         <div>
-                                            <strong>Michael Chen</strong><br>
+                                            <strong>Mayakal Chen</strong><br>
                                             <small class="text-muted">Full Stack Developer</small>
                                         </div>
                                     </div>
@@ -552,7 +185,7 @@
                         <!-- Card 3 -->
                         <div class="col-md-4">
                             <div class="card course-card position-relative course-card hidden">
-                                <img src="image/students-2.webp" class="course-image img-fluid imga" alt="Data Science">
+                                <img src="image/datasicenceindex2.jpg" class="course-image img-fluid imga" alt="Data Science">
                                 <span class="badge bg-warning text-dark badge-position">CERTIFICATE</span>
                                 <span class="price-badge">Free</span>
                                 <div class="card-body">
@@ -561,14 +194,12 @@
                                         <span class="category-badge">4 Weeks</span>
                                     </div>
                                     <h5 class="course-title">Introduction to Data Science</h5>
-                                    <p class="course-desc">Excepteur sint occaecat cupidatat non proident sunt in culpa
-                                        qui
-                                        officia deserunt.</p>
+                                   
                                     <div class="d-flex align-items-center mt-3">
-                                        <img src="image/teach-3.webp" class="instructor-img me-2 img-fluid"
+                                        <img src="/image/indexinstructor3.jpg" class="instructor-img me-2 img-fluid"
                                             alt="Dr. Emily Watson">
                                         <div>
-                                            <strong>Dr. Emily Watson</strong><br>
+                                            <strong>Emily Watson</strong><br>
                                             <small class="text-muted">Data Scientist</small>
                                         </div>
                                     </div>

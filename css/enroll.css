@@ -1,0 +1,120 @@
+ :root {
+            --primary-color: #1664c0;
+            --secondary-color: #0d6efd;
+            --accent-color: #0dcaf0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .enrollment-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .enrollment-header {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .enrollment-header h2 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .enrollment-header p {
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+        
+        .enrollment-body {
+            padding: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.7rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-container {
+            padding: 0 2rem;
+        }
+        
+        .progress {
+            height: 8px;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .required-field::after {
+            content: "*";
+            color: #dc3545;
+            margin-left: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .enrollment-body {
+                padding: 1.5rem;
+            }
+            
+            body {
+                padding: 10px 0;
+            }
+        }
